@@ -1,6 +1,6 @@
-## Rare-Template
+## Rare-Lib
 
-This repository serves as the base project for new mods created by the Rare Mods development team.
+The main dependency for all mods developed by the Rare Mods development team.
 
 <!--
 Installation information

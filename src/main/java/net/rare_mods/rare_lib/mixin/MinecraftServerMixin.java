@@ -1,22 +1,22 @@
-package net.rare_mods.examplemod.mixin;
+package net.rare_mods.rare_lib.mixin;
 
-import net.minecraft.client.Minecraft;
+import net.minecraft.server.MinecraftServer;
 import net.neoforged.fml.loading.FMLLoader;
-import net.rare_mods.examplemod.Constants;
+import net.rare_mods.rare_lib.Constants;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(Minecraft.class)
-public class MinecraftMixin {
+@Mixin(MinecraftServer.class)
+public class MinecraftServerMixin {
 
     @Inject(method = "<clinit>", at = @At("TAIL"))
     private static void injected$onClassInit(CallbackInfo callbackInfo) {
 
         if (FMLLoader.isProduction()) return;
 
-        Constants.LOG.info("Minecraft.class was initialized in a development environment!");
+        Constants.LOG.info("MinecraftServer.class was initialized in a development environment!");
     }
 
     @Inject(method = "<init>", at = @At("TAIL"))
@@ -24,6 +24,6 @@ public class MinecraftMixin {
 
         if (FMLLoader.isProduction()) return;
 
-        Constants.LOG.info("Minecraft was initialized in a development environment!");
+        Constants.LOG.info("MinecraftServer was initialized in a development environment!");
     }
 }
